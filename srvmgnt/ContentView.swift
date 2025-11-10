@@ -1,21 +1,30 @@
-//
-//  ContentView.swift
-//  srvmgnt
-//
-//  Created by Imad on 06/11/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationSplitView {
+            List {
+                Text("A Server")
+            }
+        } detail: {
+            TabView {
+                Tab("Dashboard", systemImage: "tray.and.arrow.down.fill") {
+                    Text("Dashboard")
+                 }
+                .badge(2)
+
+
+                Tab("Remote Control", systemImage: "tray.and.arrow.up.fill") {
+                    Text("Remote Control")
+                }
+
+
+                Tab("Packages", systemImage: "person.crop.circle.fill") {
+                    Text("Packages")
+                }
+                .badge("!")
+            }
         }
-        .padding()
     }
 }
 
